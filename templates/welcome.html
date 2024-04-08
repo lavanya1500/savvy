@@ -1,0 +1,24 @@
+{% extends 'home.html' %}
+{% load static %}
+{% block css %}
+body{
+    background-image: url("{%static 'D:\SwachattaSavvy\venv\Scripts\savvy\static\blue_bg.jpg'%}");
+    background-repeat:no-repeat;
+    background-attachment: fixed;
+    background-size:100%100%;
+}
+.container{
+    width:100%;
+    height:80vh;
+}
+.separator {
+    border: 8px solid white; 
+    margin: 20px 0; 
+}
+{% endblock %}
+{% block body %}
+    <div class="container">
+        
+    </div>
+    <hr class="separator">
+{% endblock %}

@@ -1,0 +1,76 @@
+{% extends 'home.html'%}
+{% load static %}
+{% block css %}
+body{
+    background-image: url("{%static 'D:\SwachattaSavvy\venv\Scripts\savvy\static\blue_bg.jpg'%}");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+}
+.center-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.centerBox {
+    margin-top:0px;
+    width: 700px;
+    height: 400px;
+    border: 2px solid #333;
+    background-color: #D3D3D3;
+}
+.tick{
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    margin-top: 30px;
+}
+.yay{
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    margin-top: 10px;
+}
+.message{
+    font-size:20px;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}
+.button {
+    background-color: #FF0000;
+    border: none;
+    color: white;
+    padding: 10px 20px; 
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 20px auto; 
+    cursor: pointer;
+    display: block; 
+    max-width: 200px; 
+
+}
+{% endblock %}
+{% block body %}
+<a href="{% url 'complaintPosted' %}"></a>
+<div class="center-container">
+    <div class="centerBox">
+        <div class="tick"> 
+            <img src="{% static 'D:\SwachattaSavvy\venv\Scripts\savvy\static\tick.png'%}" style="width:100px; height:100px; ">
+        </div>
+        <div class="yay">
+            <p style="-webkit-line-clamp: 2; font-family: os_semi_bold; font-size:25px; font-weight:bold;"> Yay! Complaint Submitted Successfully. </p>
+        </div>
+        <div class="message">
+            <p>The complaint will be resolved soon. Till then relax and leave the rest on us.</p>
+        </div>
+        <div class="home">
+            <a href="{% url 'success' %}" class="button">Back to Home</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,143 @@
+{% extends 'home.html' %}
+{% load static %}
+{% block css %}
+body{
+    background-image: url("{% static "D:\SwachattaSavvy\venv\Scripts\savvy\static\blue_bg.jpg" %}");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+}
+.footerClass{
+    width: 100%;
+    height: 50vh;
+    
+}
+.container1{
+    width: 100%;
+    height: 70vh; /* Use viewport height */
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    
+    background-image: url("{%static "D:\SwachattaSavvy\venv\Scripts\savvy\static\tool2.jpg"%}");
+    background-repeat: no-repeat;
+    background-size: 100%100%;
+}
+.separator {
+    border: 8px solid black; 
+    margin: 20px 0; 
+}
+.heading{
+    margin-top: 10px;
+    -webkit-line-clamp: 2;
+    font-family: os_semi_bold;
+    font-weight: bold;
+    color: white;
+    
+}
+.card-img-top{
+    width: 100%;
+    height: 250px; 
+}
+
+.row{
+    margin-top:20px;
+    margin-left:20px;
+    margin-right:20px;
+}
+.card {
+    border-radius: 50%; /* Make the card circular */
+    overflow: hidden; /* Hide overflow content */
+    width: 380px; /* Adjust the width of the card */
+    height: 340px;
+}
+{% endblock %}
+{% block body %}
+<a href="{% url 'success' %}"></a>
+<div class="container1">
+    <h1 class="heading" id="dynamicHeading" style="text-align: left; font-size:50px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Welcome<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;To<br> Swachatta-Savvy</h1>
+</div>
+<hr class="separator">
+<div class="services text-center">
+    <h1 class="heading" style="text-align: center;">Our Services</h1>
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="card">
+                <img src="{% static "D:\SwachattaSavvy\venv\Scripts\savvy\static\cleanroads.jpg" %}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <a href="{% url 'complaint' %}"><h5 class="card-title">Road Cleaning</h5></a>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="card">
+                <img src="{% static "D:\SwachattaSavvy\venv\Scripts\savvy\static\brokenroad.jpg" %}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <a href="{% url 'complaint' %}"><h5 class="card-title">Damaged Road</h5></a>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="card">
+                <img src="{% static "D:\SwachattaSavvy\venv\Scripts\savvy\static\cleansewage.jpg" %}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <a href="{% url 'complaint' %}" ><h5 class="card-title">Sewage Overflow</h5></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Second row of columns -->
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="card">
+                <img src="{% static "D:\SwachattaSavvy\venv\Scripts\savvy\static\cleanstreetlight.jpg" %}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <a href="{% url 'complaint' %}"><h5 class="card-title">Damaged Street-lights</h5></a>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="card">
+                <img src="{% static "D:\SwachattaSavvy\venv\Scripts\savvy\static\cleantrafficlight.jpg" %}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <a href="{% url 'complaint' %}"><h5 class="card-title">Damaged Traffic-lights</h5></a>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="card">
+                <img src="{% static "D:\SwachattaSavvy\venv\Scripts\savvy\static\cleanwaterpipe.jpg" %}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <a href="{% url 'complaint' %}"><h5 class="card-title">Broken Water-pipes</h5></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr class="separator">
+</div>
+<footer>
+    <div class="footerClass">
+        <h1 class="heading" style="text-align: center;">Contact Us</h1>
+    </div>
+</footer>
+<script>
+    // JavaScript to animate cards
+    var cards = document.querySelectorAll('.card');
+    
+    cards.forEach(function(card) {
+        card.addEventListener('mouseover', function() {
+            this.style.transform = 'scale(1.1)'; // Enlarge card on hover
+        });
+
+        card.addEventListener('mouseout', function() {
+            this.style.transform = 'scale(1)'; // Return to original size on mouseout
+        });
+    });
+
+    var dynamicHeading = document.getElementById('dynamicHeading');
+    var companyName = "Swachatta Savvy"; // You can replace this with your dynamic content
+    
+    dynamicHeading.innerHTML = "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Welcome<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;To<br>" + companyName;
+
+</script>
+{% endblock %}

@@ -1,0 +1,56 @@
+{% extends 'home.html' %}
+{%load static%}
+{% block css %}
+body{
+  background-image: url("{%static 'D:\SwachattaSavvy\venv\Scripts\savvy\static\blue_bg.jpg'%}");
+  background-repeat: no-repeat;
+  background-attachment:fixed;
+  background-size:cover;
+}
+.signupform{
+  margin: 5% auto; 
+  width: 80%; 
+  max-width: 500px;
+  text-align: center; 
+}
+
+{% endblock %}
+{% block body %}
+<div class="signupform">
+    <form style="padding: 15px;" method="post" action="{% url 'signup' %}">
+        {% csrf_token %}
+      <div class="heading">
+      <h2 style="-webkit-line-clamp: 2; font-family: os_semi_bold; font-weight:bold;color: white;">Welcome! Let's get you signed in</h2>
+      </div>
+      <div class="form-group row" style="margin-top:50px">
+            <label for="inputfname" class="col-sm-2 col-form-label" style="color: white;"><b>Name</b></label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="inputfname" name="firstname" style="width: 80%">
+            </div>
+          </div>
+          
+          <div class="form-group row">
+            <label for="inputEmail3" class="col-sm-2 col-form-label" style="text-align: center; color:white;"><b>Email</b></label>
+            <div class="col-sm-10">
+              <input type="email" class="form-control" id="inputEmail3" name="email" style="width: 80%">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="inputPassword3" class="col-sm-2 col-form-label" style="text-align: center;color:white;"><b>Password</b></label>
+            <div class="col-sm-10">
+              <input type="password" class="form-control" id="inputPassword3" name="password" style="width: 80%">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="inputAddress" class="col-sm-2 col-form-label" style="text-align: center; color:white;"><b>Address</b></label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="inputAddress" name="address" style="width: 80%">
+            </div>
+          </div>
+          <div class="alreadyMember">
+            <p style="color: white;"><b>Already Registered?</b> <a href= "{% url 'login'%}" style="color:yellow">Log In </a>
+          </div>
+          <input type="submit" class="btn btn-warning" value="Submit">
+    </form>
+</div>
+{% endblock %}
